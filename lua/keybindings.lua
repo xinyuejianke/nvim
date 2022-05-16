@@ -192,16 +192,14 @@ end
 
 -- vimspector 调试器
 pluginKeys.mapVimspector = function()
-  -- 开始
   map("n", "<leader>dd", ":call vimspector#Launch()<CR>", opt)
-  -- 结束
   map("n", "<leader>de", ":call vimspector#Reset()<CR>", opt)
-  -- 继续
+  map("n", "<leader>dr", ":call vimspector#Restart()<CR>", opt)
   map("n", "<leader>dc", ":call vimspector#Continue()<CR>", opt)
-  -- 设置断点
+  -- Set/unset break points
   map("n", "<leader>dt", ":call vimspector#ToggleBreakpoint()<CR>", opt)
   map("n", "<leader>dT", ":call vimspector#ClearBreakpoints()<CR>", opt)
-  --  stepOver, stepOut, stepInto
+  -- StepOver, stepOut, stepInto
   map("n", "<leader>dj", "<Plug>VimspectorStepOver", opt)
   map("n", "<leader>dk", "<Plug>VimspectorStepOut", opt)
   map("n", "<leader>dl", "<Plug>VimspectorStepInto", opt)
