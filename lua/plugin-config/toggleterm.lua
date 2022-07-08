@@ -21,7 +21,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
   dir = "git_dir",
-  direction = "float",
+  direction = "tab",
   float_opts = {
     border = "double",
   },
@@ -96,4 +96,3 @@ M.toggleG = function()
 end
 
 require("keybindings").mapToggleTerm(M)
-

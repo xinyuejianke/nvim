@@ -324,4 +324,3 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
 end
 
 return pluginKeys
-
