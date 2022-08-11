@@ -77,26 +77,30 @@ dapui.setup({
 
 -- setup nvim-dap for nodejs adapter
 require("dap-vscode-js").setup({
-  -- node_path = "/.nvm/versions/node/v16.15.0/bin/node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-  -- debugger_path = "~/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/", -- Path to vscode-js-debug installation.
   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
 })
 
 for _, language in ipairs({ "typescript", "javascript" }) do
   require("dap").configurations[language] = {
     {
-      type = "pwa-node",
-      request = "launch",
       name = "Launch file",
+      type = "node2",
+      request = "launch",
+      sourceMaps = true,
+      protocol = 'inspector',
+      skipFiles = {'<node_internals>/**/*.js'},
+      console = 'integratedTerminal',
+      port = 3001,
+      runtimeArgs = {"--inspect=3001"},
       program = "${workspaceFolder}/app.js",
       cwd = "${workspaceFolder}"
     },
     {
-      type = "pwa-node",
-      request = "attach",
       name = "Attach",
+      type = "node2",
+      request = "attach",
+      cwd = vim.fn.getcwd(),
       processId = require 'dap.utils'.pick_process,
-      cwd = "${workspaceFolder}",
     }
   }
 end
@@ -104,8 +108,9 @@ end
 -- node2 adapter for javascript
 dap.adapters.node2 = {
   type = 'executable',
-  command = os.getenv("HOME") .. "/.nvm/versions/node/v16.15.0/bin/node",
-  args = { os.getenv('HOME') .. "/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/out/src/vsDebugServer.js" },
+  command = 'node',
+  args = { os.getenv('HOME') .. "/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
+  -- args = { os.getenv('HOME') .. "/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/out/src/vsDebugServer.js" },
 }
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
