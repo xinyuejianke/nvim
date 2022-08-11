@@ -131,7 +131,6 @@ pluginKeys.telescopeList = {
     ["<Down>"] = "cycle_history_next",
     ["<Up>"] = "cycle_history_prev",
     -- 关闭窗口
-    -- ["<esc>"] = actions.close,
     ["<C-c>"] = "close",
     -- 预览窗口上下滚动
     ["<C-u>"] = "preview_scrolling_up",
@@ -154,8 +153,8 @@ pluginKeys.comment = {
   },
 }
 -- ctrl + /
-map("n", "<C-_>", "gcc", { noremap = false })
-map("v", "<C-_>", "gcc", { noremap = false })
+map("n", "<C-/>", "gcc", { noremap = false })
+map("v", "<C-/>", "gcc", { noremap = false })
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
@@ -203,6 +202,35 @@ pluginKeys.mapVimspector = function()
   map("n", "<leader>dj", "<Plug>VimspectorStepOver", opt)
   map("n", "<leader>dk", "<Plug>VimspectorStepOut", opt)
   map("n", "<leader>dl", "<Plug>VimspectorStepInto", opt)
+end
+
+-- nvim-dap
+pluginKeys.mapDAP = function()
+  -- 开始
+  -- map("n", "<leader>dd", ":RustDebuggables<CR>", opt)
+  -- 结束 (dapui无法自动关闭可能是bug，手动关闭能想到的一切)
+  map(
+    "n",
+    "<leader>de",
+    ":lua require'dap'.close()<CR>"
+    .. ":lua require'dap'.terminate()<CR>"
+    .. ":lua require'dap.repl'.close()<CR>"
+    .. ":lua require'dapui'.close()<CR>"
+    .. ":lua require('dap').clear_breakpoints()<CR>"
+    .. "<C-w>o<CR>",
+    opt
+  )
+  -- 继续
+  map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opt)
+  -- 设置断点
+  map("n", "<leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", opt)
+  map("n", "<leader>dT", ":lua require('dap').clear_breakpoints()<CR>", opt)
+  --  stepOver, stepOut, stepInto
+  map("n", "<leader>dj", ":lua require'dap'.step_over()<CR>", opt)
+  map("n", "<leader>dk", ":lua require'dap'.step_out()<CR>", opt)
+  map("n", "<leader>dl", ":lua require'dap'.step_into()<CR>", opt)
+  -- 弹窗
+  map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
 end
 
 -- nvim-cmp 自动补全

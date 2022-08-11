@@ -61,6 +61,16 @@ packer.startup({
     use({ "lewis6991/gitsigns.nvim" })
     -- 断电调试 vimspector
     use("puremourning/vimspector")
+    -- nvim-dap debugger
+    use("mfussenegger/nvim-dap")
+    use("theHamsta/nvim-dap-virtual-text")
+    use("rcarriga/nvim-dap-ui")
+    use("mxsdev/nvim-dap-vscode-js")
+    use {
+      "microsoft/vscode-js-debug",
+      opt = true,
+      run = "npm install --legacy-peer-deps && npm run compile"
+    }
   end,
 
   config = {
@@ -76,13 +86,13 @@ packer.startup({
     -- 自定义源
     git = {
       -- default_url_format = "https://hub.fastgit.xyz/%s",
-      default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
+      -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
       -- default_url_format = "https://gitcode.net/mirrors/%s",
       -- default_url_format = "https://gitclone.com/github.com/%s",
     },
 
-    -- display = {
     --   使用浮动窗口显示
+    -- display = {
     --   open_fn = function()
     --     return require("packer.util").float({ border = "single" })
     --   end,

@@ -30,4 +30,5 @@ require("lsp.cmp")
 require("lsp.ui")
 
 -- lua/dap/vimspector/init.lua
-require("dap.vimspector")
+-- require("dap.vimspector")
+require("dap.nvim-dap")
