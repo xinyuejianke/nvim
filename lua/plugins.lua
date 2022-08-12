@@ -41,6 +41,8 @@ packer.startup({
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
 
+    -- Lua 增强
+    use("folke/lua-dev.nvim")
     -- JSON 增强
     use("b0o/schemastore.nvim")
     -- TypeScript 增强

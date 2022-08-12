@@ -209,7 +209,11 @@ pluginKeys.mapDAP = function()
   -- 开始/继续
   map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opt)
   -- 结束
-  map("n", "<leader>de", ":lua require('dap').terminate()<CR>", opt)
+  -- map("n", "<leader>de", ":lua require('dap').terminate()<CR>", opt)
+  map( "n", "<leader>de",
+      ":lua require('dap').terminate()<CR>"
+      .. ":lua require('dap.repl').close()<CR>"
+      .. ":lua require('dap').clear_breakpoints()<CR>", opt)
   -- 设置断点
   map("n", "<leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", opt)
   map("n", "<leader>dT", ":lua require('dap').clear_breakpoints()<CR>", opt)

@@ -1,3 +1,8 @@
+-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+-- https://github.com/hrsh7th/nvim-cmp
+-- https://github.com/onsails/lspkind-nvim
+
+--local lspkind = require("lspkind")
 local cmp = require("cmp")
 
 cmp.setup({
@@ -17,36 +22,35 @@ cmp.setup({
       -- require'snippy'.expand_snippet(args.body)
     end,
   },
-  -- 补全源
+  -- 来源
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     -- For vsnip users.
     { name = "vsnip" },
-
+    { name = "buffer" },
     -- For luasnip users.
     -- { name = 'luasnip' },
-
     --For ultisnips users.
     -- { name = 'ultisnips' },
-
     -- -- For snippy users.
     -- { name = 'snippy' },
-  }, { { name = "buffer" }, { name = "path" } }),
+  }, { { name = "path" } }),
 
-  -- 快捷键设置
+  -- 快捷键
   mapping = require("keybindings").cmp(cmp),
   -- 使用lspkind-nvim显示类型图标
-  formatting = require('lsp.ui').formatting
+  formatting = require("lsp.ui").formatting,
 })
 
--- / 查找模式使用 buffer 源
+-- Use buffer source for `/`.
 cmp.setup.cmdline("/", {
   sources = {
     { name = "buffer" },
   },
 })
 
--- : 命令行模式中使用 path 和 cmdline 源.
+-- Use cmdline & path source for ':'.
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({

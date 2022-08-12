@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/zen/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/tami5/lspsaga.nvim"
   },
+  ["lua-dev.nvim"] = {
+    loaded = true,
+    path = "/Users/zen/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
+    url = "https://github.com/folke/lua-dev.nvim"
+  },
   ["lualine-lsp-progress"] = {
     loaded = true,
     path = "/Users/zen/.local/share/nvim/site/pack/packer/start/lualine-lsp-progress",
