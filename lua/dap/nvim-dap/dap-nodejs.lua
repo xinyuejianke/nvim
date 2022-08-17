@@ -2,18 +2,19 @@
 
 -- lastest microsoft offical nodejs debugger
 -- but have bug when using in nvim-dap, the session will not be terminate
--- require("dap-vscode-js").setup({
---   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
--- })
+require("dap-vscode-js").setup({
+  adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+})
+
 local M = {}
 
 M.setUpDapConfig = function(dap, languages)
   for _, language in ipairs( languages ) do
-    -- require("dap").configurations[language] = {
       dap.configurations[language] = {
         {
           name = "Launch file",
           type = "node2",
+          -- type = "pwa-node",
           request = "launch",
           sourceMaps = true,
           protocol = 'inspector',
@@ -39,8 +40,10 @@ M.setUpDapConfig = function(dap, languages)
 M.getNodeJsAdapter = {
   type = 'executable',
   command = 'node',
-  args = { os.getenv('HOME') .. "/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
-  -- args = { os.getenv('HOME') .. "/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/out/src/vsDebugServer.js" },
+  args = {
+    os.getenv('HOME') .. "/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js",
+    -- os.getenv('HOME') .. "/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/out/src/vsDebugServer.js"
+  },
 }
 
 return M

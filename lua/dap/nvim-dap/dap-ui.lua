@@ -1,5 +1,5 @@
 -- setup nvim-dap-ui
-local dapui = require("dapui")
+local dap, dapui = require("dap"), require("dapui")
 
 dapui.setup({
   icons = { expanded = "▾", collapsed = "▸" },
@@ -22,8 +22,8 @@ dapui.setup({
         "stacks",
         "watches",
       },
-      size = 40, -- 40 columns
-      position = "left",
+      size = 41, -- 40 columns
+      position = "right",
     },
     {
       elements = {
