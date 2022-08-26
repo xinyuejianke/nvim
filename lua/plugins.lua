@@ -3,10 +3,11 @@ packer.startup({
   function(use)
     -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
-    --------------------- colorschemes --------------------
     -- colorscheme: tokyonight
     use("folke/tokyonight.nvim")
     use("christianchiarulli/nvcode-color-schemes.vim")
+    use ({ "EdenEast/nightfox.nvim"})
+
     -- nvim-tree
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
     -- bufferline

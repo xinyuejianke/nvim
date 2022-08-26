@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/zen/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/zen/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvcode-color-schemes.vim"] = {
     loaded = true,
     path = "/Users/zen/.local/share/nvim/site/pack/packer/start/nvcode-color-schemes.vim",

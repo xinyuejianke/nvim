@@ -49,15 +49,10 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt) -- close others
 -- alt + hjkl  窗口之间跳转
-map("n", "<A-h>", "<C-w>h", opt)
-map("n", "<A-j>", "<C-w>j", opt)
-map("n", "<A-k>", "<C-w>k", opt)
-map("n", "<A-l>", "<C-w>l", opt)
--- <leader> + hjkl 窗口之间跳转
-map("n", "<leader>h", "<C-w>h", opt)
-map("n", "<leader>j", "<C-w>j", opt)
-map("n", "<leader>k", "<C-w>k", opt)
-map("n", "<leader>l", "<C-w>l", opt)
+map("n", "<S-h>", "<C-w>h", opt)
+map("n", "<S-j>", "<C-w>j", opt)
+map("n", "<S-k>", "<C-w>k", opt)
+map("n", "<S-l>", "<C-w>l", opt)
 -- 左右比例
 map("n", "sl", ":vertical resize -2<CR>", opt)
 map("n", "sh", ":vertical resize +2<CR>", opt)
