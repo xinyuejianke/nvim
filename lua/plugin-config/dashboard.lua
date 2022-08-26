@@ -7,49 +7,29 @@ end
 db.custom_center = {
   {
     icon = "  ",
-    desc = "Projects                            ",
+    desc = "Projects            ",
     action = "Telescope projects",
   },
   {
+    icon = "  ",
+    desc = "New File            ",
+    action = "DashboardNewFile"
+  },
+  {
     icon = "  ",
-    desc = "Recently files                      ",
+    desc = "Recently Used Files ",
     action = "Telescope oldfiles",
   },
   {
     icon = "  ",
-    desc = "Edit keybindings                    ",
+    desc = "Edit keybindings    ",
     action = "edit ~/.config/nvim/lua/keybindings.lua",
   },
   {
     icon = "  ",
-    desc = "Edit Projects                       ",
+    desc = "Edit Projects       ",
     action = "edit ~/.local/share/nvim/project_nvim/project_history",
   },
-  -- {
-  --   icon = "  ",
-  --   desc = "Edit .bashrc                        ",
-  --   action = "edit ~/.bashrc",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Change colorscheme                  ",
-  --   action = "ChangeColorScheme",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Edit init.lua                       ",
-  --   action = "edit ~/.config/nvim/init.lua",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find file                           ",
-  --   action = "Telescope find_files",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find text                           ",
-  --   action = "Telescopecope live_grep",
-  -- },
 }
 
 db.custom_header = {
@@ -61,13 +41,13 @@ db.custom_header = {
   [[ ███████╗███████╗██║ ╚████║██████╔╝███████╗ ]],
   [[ ╚══════╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝ ]],
   [[                                            ]],
-  [[        [Life is hard, code is easy]        ]],
+  [[      [coding is easy, life is hard]        ]],
   [[                                            ]]
 }
 
 db.dashboard_custom_footer = { "Zen's development environment" }
 db.custom_footer = {
+  "Zen's development environment",
   "",
-  "",
-  "Zen's development environment"
+  ""
 }
