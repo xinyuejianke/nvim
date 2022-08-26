@@ -104,7 +104,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
-map("n", "<leader>cc", ":Bdelete!<CR>", opt)
+map("n", "<leader>c", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
 map("n", "<leader>ch", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>cl", ":BufferLineCloseRight<CR>", opt)
